@@ -1,0 +1,22 @@
+{{- $personal := false -}}
+{{- $email := "smkelly@smkelly.org" -}}
+
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $compname := output "scutil" "--get" "ComputerName" | trim -}}
+{{-   if eq $compname "turbo" -}}
+{{-     $hostname = "turbo" -}}
+{{-    end -}}
+{{- end -}}
+
+{{- if eq $hostname "turbo" -}}
+{{-   $personal = true -}}
+{{-   $email = "smkelly@smkelly.org" -}}
+{{-  else -}}
+{{-    $email = "smkelly@flightaware.com" -}}
+{{- end -}}
+
+[data]
+email = {{ $email | quote }}
+name = "Sean Kelly"
+personal = {{ $personal }} 
