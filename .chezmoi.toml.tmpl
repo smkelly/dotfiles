@@ -1,4 +1,6 @@
-{{- $personal_hosts := list "turbo" "doctor" -}}
+{{- $personal_hosts := list
+      "turbo" "doctor"
+-}}
 {{- $personal := false -}}
 {{- $email := "smkelly@smkelly.org" -}}
 
@@ -10,7 +12,7 @@
 {{-    end -}}
 {{- end -}}
 
-{{- if has $hostname $personal_hosts -}}
+{{- if or ($hostname | contains "smkelly.org") (has $hostname $personal_hosts) -}}
 {{-   $personal = true -}}
 {{-   $email = "smkelly@smkelly.org" -}}
 {{-  else -}}
