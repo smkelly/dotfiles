@@ -1,0 +1,57 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+
+{{ $brews := list
+     "awscli"
+     "bat"
+     "black"
+     "chezmoi"
+     "dockutil"
+     "exa"
+     "fd"
+     "fish"
+     "fzf"
+     "gnuplot"
+     "go"
+     "graphviz"
+     "htop"
+     "httpie"
+     "imagemagick"
+     "ipcalc"
+     "jq"
+     "kubernetes-cli"
+     "mas"
+     "mosh"
+     "mtr"
+     "neovim"
+     "node"
+     "nmap"
+     "pv"
+     "tealdeer"
+     "telnet"
+     "tmux"
+     "topgrade"
+     "xz"
+     "yj"
+}}
+{{ $brews_personal := list
+     "ffmpeg"
+     "handbrake"
+     "hugo"
+     "netlify-cli"
+     "sassc"
+     "sox"
+     "syncthing"
+     "youtube-dl"
+}}
+{{ if .personal }}
+{{   $brews = concat $brews $brews_personal }}
+{{ end }}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end }}
+EOF
+
+{{- end -}}
