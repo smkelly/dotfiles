@@ -1,7 +1,7 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 
-{{ $brews := list
+{{- $brews := list
      "awscli"
      "bat"
      "black"
@@ -36,8 +36,8 @@
      "wget"
      "xz"
      "yj"
-}}
-{{ $brews_personal := list
+-}}
+{{- $brews_personal := list
      "ffmpeg"
      "handbrake"
      "hugo"
@@ -46,14 +46,32 @@
      "sox"
      "syncthing"
      "youtube-dl"
-}}
-{{ if .personal }}
+-}}
+{{- $casks := list
+     "1password"
+     "1password-cli"
+     "aerial"
+     "alfred"
+     "bartender"
+     "firefox"
+     "iterm2"
+     "keyboard-maestro"
+     "microsoft-office"
+     "obsidian"
+     "typinator"
+     "visual-studio-code"
+     "zoom"
+-}}
+{{- if .personal }}
 {{   $brews = concat $brews $brews_personal }}
-{{ end }}
+{{ end -}}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range ($brews | sortAlpha | uniq) -}}
 brew "{{ . }}"
+{{ end }}
+{{- range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
 {{ end }}
 EOF
 
