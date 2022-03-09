@@ -62,8 +62,27 @@
      "visual-studio-code"
      "zoom"
 -}}
+{{- $casks_personal := list
+     "discord"
+     "handbrake"
+     "hazel"
+     "hdhomerun"
+     "iina"
+     "maestral"
+     "makemkv"
+     "sonos"
+     "vlc"
+-}}
+{{- $casks_work := list
+     "fantastical"
+     "mailmate"
+     "tunnelblick"
+-}}
 {{- if .personal }}
 {{   $brews = concat $brews $brews_personal }}
+{{   $casks = concat $casks $casks_personal }}
+{{ else }}
+{{   $casks = concat $casks $casks_work }}
 {{ end -}}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
