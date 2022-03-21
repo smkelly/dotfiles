@@ -1,0 +1,6 @@
+# Enable extended mode
+-e
+
+# Slower update rate, to not flodo remote sessions
+-q
+
