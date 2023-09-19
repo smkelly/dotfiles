@@ -1,10 +1,14 @@
 status is-interactive; or exit
 
-command -qv exa; and begin
+if command -qv eza
+  alias l 'eza --color-scale -g --git --group-directories-first --time-style=iso -alh'
+  alias ll 'eza --color-scale -g --git --group-directories-first --time-style=iso -l'
+  alias ls 'eza --color-scale -g --git --group-directories-first --time-style=iso'
+else if command -qv exa
   alias l 'exa --color-scale -g --git --group-directories-first --time-style=iso -alh'
   alias ll 'exa --color-scale -g --git --group-directories-first --time-style=iso -l'
   alias ls 'exa --color-scale -g --git --group-directories-first --time-style=iso'
-end; or begin
+else
   test (uname -s) = "Linux"; and set -la ls_args "--group-directories-first"
   set -la ls_args "--color=auto"
 
