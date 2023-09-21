@@ -1,9 +1,9 @@
 status is-interactive; or exit
 
 if command -qv eza
-  alias l 'eza --color-scale -g --git --group-directories-first --time-style=iso -alh'
-  alias ll 'eza --color-scale -g --git --group-directories-first --time-style=iso -l'
-  alias ls 'eza --color-scale -g --git --group-directories-first --time-style=iso'
+  alias l 'eza --color-scale -g --git --group-directories-first --time-style=iso -alhM'
+  alias ll 'eza --color-scale -g --git --group-directories-first --time-style=iso -lM'
+  alias ls 'eza --color-scale -g --git --group-directories-first --time-style=iso -M'
 else if command -qv exa
   alias l 'exa --color-scale -g --git --group-directories-first --time-style=iso -alh'
   alias ll 'exa --color-scale -g --git --group-directories-first --time-style=iso -l'
