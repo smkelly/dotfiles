@@ -5,7 +5,7 @@ set -l paths \
   /opt/homebrew/sbin
 
 if functions -q xxfish_add_path
-  fish_add_path $pahs
+  fish_add_path $paths
 else
   set -l --path checked
   for dir in $paths
