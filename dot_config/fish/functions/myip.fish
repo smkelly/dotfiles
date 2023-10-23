@@ -1,3 +1,6 @@
+command -qv dig
+or exit
+
 function myip
   argparse --name="myip" "6" -- $argv
   or return
