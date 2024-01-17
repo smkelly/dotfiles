@@ -1,0 +1,83 @@
+packages:
+  brews:
+    - age
+    - awscli
+    - bat
+    - black
+    - chezmoi
+    - dockutil
+    - eza
+    - fd
+    - fish
+    - fzf
+    - gh
+    - gnuplot
+    - go
+    - graphviz
+    - htop
+    - httpie
+    - hub
+    - imagemagick
+    - ipcalc
+    - jq
+    - kubernetes-cli
+    - mas
+    - mosh
+    - mtr
+    - ncdu
+    - neovim
+    - node
+    - nmap
+    - pv
+    - ripgrep
+    - sops
+    - telnet
+    - tmux
+    - topgrade
+    - wget
+    - xz
+    - yj
+
+  brews_personal:
+    - ffmpeg
+    - handbrake
+    - hugo
+    - netlify-cli
+    - sassc
+    - sox
+    - syncthing
+    - youtube-dl
+
+  casks:
+    - 1password-cli
+    - aerial
+    - alfred
+    - cleanshot
+    - iterm2
+    - keyboard-maestro
+    - microsoft-office
+    - netnewswire
+    - obsidian
+    - thingsmacsandboxhelper
+    - typinator
+    - visual-studio-code
+
+  casks_personal:
+    - 1password
+    - backblaze
+    - discord
+    - firefox
+    - handbrake
+    - hazel
+    - hdhomerun
+    - iina
+    - insta360-studio
+    - maestral
+    - makemkv
+    - mullvadvpn
+    - sonos
+    - vlc
+    - zoom
+
+  casks_work:
+    - fantastical
