@@ -1,8 +1,5 @@
-command -qv dig
-or exit
-
 function myip
-  argparse --name="myip" "6" -- $argv
+  argparse --name="myip" -x 4,6 "4" "6" -- $argv
   or return
 
   if test $_flag_6
