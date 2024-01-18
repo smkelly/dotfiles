@@ -19,8 +19,12 @@
 {{-    $email = "smkelly@flightaware.com" -}}
 {{- end -}}
 
+format = "yaml"
+progress = true
+
 [data]
 email = {{ $email | quote }}
 name = "Sean Kelly"
 personal = {{ $personal }} 
 clean_hostname = {{ $hostname | quote }}
+
