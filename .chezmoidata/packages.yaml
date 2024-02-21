@@ -55,6 +55,7 @@ packages:
     - cleanshot
     - iterm2
     - keyboard-maestro
+    - kitty
     - microsoft-office
     - netnewswire
     - obsidian
