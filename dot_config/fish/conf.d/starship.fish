@@ -5,5 +5,5 @@ test "$DISABLE_STARSHIP"; and exit
 
 command -qv starship; and \
   test -r ~/.config/starship.toml; and \
-  eval (starship init fish)
+  starship init fish | source
 
