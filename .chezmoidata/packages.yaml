@@ -57,6 +57,7 @@ packages:
     - microsoft-office
     - netnewswire
     - obsidian
+    - raycast
     - thingsmacsandboxhelper
     - typinator
     - visual-studio-code
@@ -74,6 +75,7 @@ packages:
     - maestral
     - makemkv
     - sonos
+    - tailscale
     - vlc
     - zoom
 
