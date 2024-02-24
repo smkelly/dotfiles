@@ -50,8 +50,6 @@ packages:
 
   casks:
     - 1password-cli
-    - aerial
-    - alfred
     - cleanshot
     - iterm2
     - keyboard-maestro
@@ -75,7 +73,6 @@ packages:
     - insta360-studio
     - maestral
     - makemkv
-    - mullvadvpn
     - sonos
     - vlc
     - zoom
