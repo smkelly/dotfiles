@@ -12,7 +12,8 @@ function fish_title
 
     if test "$SSH_CONNECTION"
       set remote $USER@(string replace -r "\..*" "" $hostname)
+      set remote "($remote)"
     end
 
-    echo $cmd $remote
+    echo -n $cmd $remote
 end
