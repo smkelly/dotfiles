@@ -9,7 +9,12 @@ function battery --description 'Show system battery status'
     set data (pmset -g batt | egrep -o "([0-9]+\%).*")
     set level (echo $data | cut -d';' -f1)
     set state (string trim (echo $data | cut -d';' -f2))
-    test "$state" = "charging"; and set color brgreen; or set color brred
+    switch "$state"
+      case charged charging
+	set color brgreen
+      case '*'
+        set color brred
+    end
   else
     echo "$cmd: Unsupported operating system" >&2
     return 1
