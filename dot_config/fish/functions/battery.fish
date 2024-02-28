@@ -10,7 +10,7 @@ function battery --description 'Show system battery status'
     set level (echo $data | cut -d';' -f1)
     set state (string trim (echo $data | cut -d';' -f2))
     switch "$state"
-      case charged charging
+      case charged charging "AC attached"
 	set color brgreen
       case '*'
         set color brred
