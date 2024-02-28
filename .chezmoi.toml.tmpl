@@ -6,18 +6,24 @@
 
 {{- $hostname := .chezmoi.hostname -}}
 {{- if eq .chezmoi.os "darwin" -}}
-{{-   $compname := output "scutil" "--get" "ComputerName" | trim -}}
-{{-   if eq $compname "turbo" -}}
-{{-     $hostname = "turbo" -}}
-{{-    end -}}
+{{-   $hostname := output "scutil" "--get" "ComputerName" | trim -}}
+{{- end -}}
+
+{{- $osId := .chezmoi.os -}}
+{{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
+{{-   $osId = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
 {{- if or ($hostname | contains "smkelly.org") (has $hostname $personal_hosts) -}}
 {{-   $personal = true -}}
-{{-   $email = "smkelly@smkelly.org" -}}
-{{-  else -}}
-{{-    $email = "smkelly@flightaware.com" -}}
 {{- end -}}
+{{- $personal := promptBoolOnce . "personal" "Is this a personal device" $personal }}
+
+{{- if not $personal }}
+{{-   $email = "smkelly@flightaware.com" }}
+{{- end -}}
+{{- $email := promptStringOnce . "email" "What is your email address" $email -}}
+
 
 format = "yaml"
 progress = true
@@ -26,5 +32,5 @@ progress = true
 email = {{ $email | quote }}
 name = "Sean Kelly"
 personal = {{ $personal }} 
-clean_hostname = {{ $hostname | quote }}
-
+hostname = {{ $hostname | quote }}
+osId = {{ $osId | quote }}
