@@ -14,4 +14,9 @@ for x in nvim vim vi
 end
 
 set -q EDITOR; or set -gx EDITOR (type -P $found)
-set -q VISUAL; or set -gx VISUAL (type -P $found)
+
+if command -q code
+  set -gx VISUAL (type -P code)
+else
+  set -gx VISUAL (type -P $found)
+end
