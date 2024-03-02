@@ -1,15 +1,14 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 
-{{- $brews := list -}}
-{{- $casks := list -}}
+{{- $brews := .packages.brews -}}
+{{- $casks := .packages.casks -}}
 
 {{- if .personal }}
-{{   $brews = concat .packages.brews .packages.brews_personal }}
-{{   $casks = concat .packages.casks .packages.casks_personal }}
+{{   $brews = concat $brews .packages.brews_personal }}
+{{   $casks = concat $casks .packages.casks_personal }}
 {{ else }}
-{{   $brews = .packages.brews }}
-{{   $casks = concat .packages.casks .packages.casks_work }}
+{{   $casks = concat $casks .packages.casks_work }}
 {{ end -}}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
