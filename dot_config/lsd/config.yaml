@@ -1,6 +1,7 @@
 date: "+%Y-%m-%d %H:%m:%S"
 icons:
   theme: unicode
+hyperlink: auto
 indicators: true
 sorting:
   dir-grouping: first
