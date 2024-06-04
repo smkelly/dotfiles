@@ -6,7 +6,6 @@ packages:
     - black
     - chezmoi
     - dockutil
-    - dog
     - eza
     - fd
     - fish
