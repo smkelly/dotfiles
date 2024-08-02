@@ -4,4 +4,7 @@
 \timing
 \set HISTFILE ~/.psql_history-:DBNAME
 \set HISTCONTROL ignoredups
+\set PROMPT1 '%n@%m:%~%R%x%# '
+\set PROMPT2 '%n@%m:%~%R%x%# '
+
 \set QUIET off
