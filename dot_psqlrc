@@ -6,5 +6,6 @@
 \set HISTCONTROL ignoredups
 \set PROMPT1 '%n@%m:%~%R%x%# '
 \set PROMPT2 '%n@%m:%~%R%x%# '
+\f ,
 
 \set QUIET off
