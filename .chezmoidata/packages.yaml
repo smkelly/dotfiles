@@ -52,6 +52,7 @@ packages:
   casks:
     - 1password-cli
     - cleanshot
+    - font-atkinson-hyperlegible
     - iterm2
     - keyboard-maestro
     - kitty
@@ -81,5 +82,4 @@ packages:
     - vlc
     - zoom
 
-  casks_work:
-    - fantastical
+  casks_work: []
