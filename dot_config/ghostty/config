@@ -1,0 +1,14 @@
+# XDG
+
+font-family = "Source Code Pro for Powerline"
+font-size = 16
+
+term = xterm-256color
+shell-integration-features = true
+
+theme = Abernathy
+bold-is-bright = true
+minimum-contrast = 3
+
+macos-titlebar-style = native
+
