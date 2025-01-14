@@ -53,6 +53,8 @@ packages:
     - 1password-cli
     - cleanshot
     - font-atkinson-hyperlegible
+    - font-source-code-pro-for-powerline
+    - ghostty
     - iterm2
     - keyboard-maestro
     - kitty
