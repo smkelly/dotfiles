@@ -1,14 +1,21 @@
-# XDG
-
 font-family = "Source Code Pro for Powerline"
 font-size = 16
 
 term = xterm-256color
-shell-integration-features = true
+shell-integration-features = no-cursor
 
 theme = Abernathy
 bold-is-bright = true
 minimum-contrast = 3
+selection-foreground = white
+selection-background = dark blue
+selection-invert-fg-bg = false
+cursor-opacity = 0.8
+cursor-style = block
 
 macos-titlebar-style = native
+
+# Hyper+`
+keybind = global:super+ctrl+alt+shift+`=toggle_quick_terminal
+quick-terminal-position = right
 
