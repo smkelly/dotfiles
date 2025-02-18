@@ -79,6 +79,7 @@ packages:
     - keybase
     - maestral
     - makemkv
+    - orbstack
     - sonos
     - tailscale
     - vlc
