@@ -57,13 +57,9 @@ packages:
     - ghostty
     - iterm2
     - keyboard-maestro
-    - kitty
-    - microsoft-office
-    - netnewswire
     - obsidian
     - raycast
     - thingsmacsandboxhelper
-    - typinator
     - visual-studio-code
 
   casks_personal:
