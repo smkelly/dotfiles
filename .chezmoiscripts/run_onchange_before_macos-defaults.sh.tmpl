@@ -34,12 +34,9 @@ defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
 # Enable dark mode
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
-# Tint window backgrounds (macOS 15+)
-defaults write NSGlobalDomain AppleReduceDesktopTinting -int 0
-
-# Menu bar background (macOS 15+)
-# 0 = default, 1 = always shows background
-defaults write NSGlobalDomain NSWindowTabbingHasBackgroundMaterialInTitlebar -int 1
+# Enable window background tinting with wallpaper color (macOS 26)
+# Set to false to enable tinting, true to disable (note: "Reduce" in name means disable)
+defaults write -g AppleReduceDesktopTinting -bool false
 
 # Disable automatic display brightness adjustment
 sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Display Enabled" -bool false
@@ -72,6 +69,8 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 ###############################################################################
 # Dock Settings
 ###############################################################################
+# Note: macOS 26.0 Tahoe has a known bug where Dock autohide occasionally
+# turns on unexpectedly after wake. Workaround: killall Dock or Cmd+Option+D
 
 # Auto-hide the Dock
 defaults write com.apple.dock autohide -bool true
