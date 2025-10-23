@@ -1,5 +1,5 @@
 {{- $personal_hosts := list
-      "doctor" "dublin" "hass" "mykonos" "turbo"
+      "doctor" "dublin" "hass" "mykonos" "turbo" "sydney"
 -}}
 {{- $personal := false -}}
 {{- $email := "smkelly@smkelly.org" -}}
@@ -20,7 +20,7 @@
 {{- $personal := promptBoolOnce . "personal" "Is this a personal device" $personal }}
 
 {{- if not $personal }}
-{{-   $email = "smkelly@flightaware.com" }}
+{{-   $email = "smkelly@collins.com" }}
 {{- end -}}
 {{- $email := promptStringOnce . "email" "What is your email address" $email -}}
 
