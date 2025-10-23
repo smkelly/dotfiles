@@ -1,0 +1,12 @@
+Host *
+    User smkelly
+    AddKeysToAgent yes
+    {{- if eq .chezmoi.os "darwin" }}
+    UseKeychain yes
+    {{- end }}
+
+Host github.com
+    User git
+    Hostname github.com
+    PreferredAuthentications publickey
+
