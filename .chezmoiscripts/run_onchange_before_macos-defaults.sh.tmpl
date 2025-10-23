@@ -108,6 +108,47 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeF
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 
 ###############################################################################
+# Accessibility Settings
+###############################################################################
+
+# Enable reduced transparency
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
+# Show window title icons
+defaults write NSGlobalDomain AppleShowWindowTitlebarIcons -bool true
+
+# Prefer horizontal text
+defaults write NSGlobalDomain AppleTextDirection -int 0
+
+# Shake mouse pointer to locate
+defaults write CGDisableCursorLocationMagnification -bool false
+
+# Zoom: Use keyboard shortcuts to zoom (Option+Command+8)
+defaults write com.apple.universalaccess closeViewHotkeysEnabled -bool true
+
+# Zoom: Use scroll gesture with modifier keys to zoom
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+
+# Zoom: Modifier key for scroll gesture (Control key = 262144)
+defaults write com.apple.universalaccess closeViewScrollWheelModifiersInt -int 262144
+
+# Zoom: Use trackpad gesture to zoom (Control + two-finger pinch)
+defaults write com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 262144
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
+
+# Zoom style: Full screen (0 = full screen, 1 = picture-in-picture)
+defaults write com.apple.universalaccess closeViewWindowMode -int 0
+
+# Zoom: Enable smooth images
+defaults write com.apple.universalaccess closeViewSmoothImages -bool false
+
+# Zoom: Zoomed image moves continuously with pointer (0 = continuous, 1 = centered)
+defaults write com.apple.universalaccess closeViewPanningMode -int 0
+
+# Zoom each display independently
+defaults write com.apple.universalaccess closeViewZoomMode -int 1
+
+###############################################################################
 # Other Useful Settings
 ###############################################################################
 
