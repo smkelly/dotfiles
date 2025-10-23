@@ -11,3 +11,20 @@
 [init]
 	defaultBranch = main
 
+[pull]
+    rebase = true
+
+[push]
+    default = current
+    autoSetupRemote = true
+
+[fetch]
+    prune = true
+    
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    cm = commit
+    lg = log --graph --oneline --decorate --all
+    
