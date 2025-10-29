@@ -1,0 +1,16 @@
+set editing-mode emacs              # (already default, but explicit)
+set bell-style none                 # Don't beep
+set completion-ignore-case on       # Case-insensitive
+set show-all-if-ambiguous on       # Show completions immediately
+set colored-stats on                # Color by file type
+set visible-stats on                # Show / for directories
+set completion-query-items 0
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set menu-complete-display-prefix on
+set colored-completion-prefix on
+
+# Better history navigation
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
