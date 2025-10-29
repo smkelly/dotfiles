@@ -1,34 +1,23 @@
-{{- /* Cross-platform PATH configuration */ -}}
-
 set -l paths \
   $HOME/bin \
   $HOME/.local/bin \
   $HOME/.cargo/bin
 
-{{- if eq .chezmoi.os "darwin" }}
-# macOS: Homebrew paths
+{{ if eq .chezmoi.os "darwin" }}
+# macOS
 set -a paths \
   /opt/homebrew/bin \
   /opt/homebrew/sbin
 {{- else if eq .chezmoi.os "freebsd" }}
-# FreeBSD: Local packages
+# FreeBSD
 set -a paths \
   /usr/local/bin \
   /usr/local/sbin
 {{- else if eq .chezmoi.os "linux" }}
-# Linux: Local binaries
+# Linux
 set -a paths \
-  /usr/local/bin
+  /usr/local/bin \
+  /usr/local/sbin
 {{- end }}
 
-# Add paths using fish_add_path if available (fish 3.2+)
-if functions -q fish_add_path
-  fish_add_path $paths
-else
-  # Fallback for older fish versions
-  set -l --path checked
-  for dir in $paths
-    test -d $dir; and set -a checked (realpath $dir)
-  end
-  set -p PATH $checked
-end
+fish_add_path $paths
