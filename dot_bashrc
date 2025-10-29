@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Main bashrc - sources modular config from ~/.config/bash/conf.d/
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Set emacs key bindings (also configured in .inputrc)
+set -o emacs
+
+# Enable helpful shell options
+shopt -s checkwinsize   # Update LINES and COLUMNS after each command
+shopt -s histappend     # Append to history, don't overwrite
+shopt -s cmdhist        # Save multi-line commands as one command
+shopt -s cdspell        # Correct minor spelling errors in cd
+shopt -s dirspell 2>/dev/null  # Correct minor spelling errors in tab completion
+shopt -s globstar 2>/dev/null  # ** matches all files and directories recursively
+
+# History configuration
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+export HISTCONTROL=ignoreboth:erasedups
+
+# Source all bash configs in .config/bash/conf.d/
+if [ -d ~/.config/bash/conf.d ]; then
+    for config in ~/.config/bash/conf.d/*.bash; do
+        [ -r "$config" ] && source "$config"
+    done
+fi
+unset config
+
+# Source local overrides if they exist
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local

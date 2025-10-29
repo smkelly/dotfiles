@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash profile - sourced by login shells
+
+# Source .profile if it exists
+[ -f "$HOME/.profile" ] && source "$HOME/.profile"
+
+# Source .bashrc for interactive shells
+[ -f "$HOME/.bashrc" ] && [[ $- == *i* ]] && source "$HOME/.bashrc"

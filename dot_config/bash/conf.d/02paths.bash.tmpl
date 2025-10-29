@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# PATH configuration - direct translation of 02paths.fish.tmpl
+
+paths=(
+  "$HOME/bin"
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+)
+
+{{ if eq .chezmoi.os "darwin" }}
+# macOS
+paths+=(
+  "/opt/homebrew/bin"
+  "/opt/homebrew/sbin"
+)
+{{- else if eq .chezmoi.os "freebsd" }}
+# FreeBSD
+paths+=(
+  "/usr/local/bin"
+  "/usr/local/sbin"
+)
+{{- else if eq .chezmoi.os "linux" }}
+# Linux
+paths+=(
+  "/usr/local/bin"
+  "/usr/local/sbin"
+)
+{{- end }}
+
+# Add paths to PATH
+for dir in "${paths[@]}"; do
+  if [ -d "$dir" ] && [[ ":$PATH:" != *":$dir:"* ]]; then
+    PATH="$dir:$PATH"
+  fi
+done
+export PATH
