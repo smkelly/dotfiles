@@ -1,0 +1,60 @@
+#!/bin/sh
+
+##### FUNCTIONS #####
+
+add_path() {
+	if [ ! -d $1 ]; then
+		return 1
+	fi
+	if [ "$2" = "front" ]; then
+		export PATH="$1:$PATH"
+	else
+		export PATH="$PATH:$1"
+	fi
+}
+
+### END FUNCTIONS ###
+
+### PRE-FLIGHT
+
+export PS1='\u@\h:\w\$ '
+export PS2="=> "
+export EDITOR="vi"
+
+export TZ="America/New_York"
+
+# Character encodings
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+
+set -o emacs
+
+# Manage the titlebar for xterm
+case "$TERM" in
+xterm*|rxvt*)
+	PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+	;;
+esac
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+add_path $HOME/bin front
+add_path $HOME/.local/bin front
+
+# Prefer vim if it exists
+which vim >/dev/null 2>&1 && alias vi=vim
+
+# OS-specific initialization
+OSVER=`uname -s`
+if [ "$OSVER" = "Darwin" ]; then
+	add_path /opt/homebrew/bin
+	add_path /opt/homebrew/sbin
+fi
