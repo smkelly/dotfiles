@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+# PATH configuration - direct translation of 02paths.fish.tmpl
+
+paths=(
+  "$HOME/bin"
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+)
+
+{{ if eq .chezmoi.os "darwin" }}
+# macOS
+paths+=(
+  "/opt/homebrew/bin"
+  "/opt/homebrew/sbin"
+)
+{{- else if eq .chezmoi.os "freebsd" }}
+# FreeBSD
+paths+=(
+  "/usr/local/bin"
+  "/usr/local/sbin"
+)
+{{- else if eq .chezmoi.os "linux" }}
+# Linux
+paths+=(
+  "/usr/local/bin"
+  "/usr/local/sbin"
+)
+{{- end }}
+
+# Add paths to PATH (zsh way - prepend to path array)
+for dir in "${paths[@]}"; do
+  if [[ -d "$dir" ]] && [[ ":$PATH:" != *":$dir:"* ]]; then
+    path=("$dir" $path)
+  fi
+done
+
+alias ...="cd ../../"
+alias ....="cd ../../../"

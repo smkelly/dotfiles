@@ -1,0 +1,41 @@
+#!/usr/bin/env zsh
+# Main zshrc - sources modular config from ~/.config/zsh/
+
+# If not running interactively, don't do anything
+[[ -o interactive ]] || return
+
+# Set emacs key bindings (also configured in .inputrc)
+bindkey -e
+
+# Enable helpful zsh options
+setopt AUTO_CD              # cd by just typing directory name
+setopt EXTENDED_GLOB        # Extended globbing (**, etc.)
+setopt HIST_IGNORE_DUPS     # Don't record duplicate commands
+setopt HIST_IGNORE_SPACE    # Don't record commands starting with space
+setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks
+setopt SHARE_HISTORY        # Share history between sessions
+setopt APPEND_HISTORY       # Append to history file
+setopt INC_APPEND_HISTORY   # Write to history file immediately
+
+# History configuration
+export HISTSIZE=10000
+export SAVEHIST=20000
+export HISTFILE=~/.zsh_history
+
+# Enable completion system
+autoload -Uz compinit
+compinit
+
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Source all zsh configs in .config/zsh/
+if [[ -d ~/.config/zsh ]]; then
+    for config in ~/.config/zsh/*.zsh(N); do
+        [[ -r "$config" ]] && source "$config"
+    done
+fi
+unset config
+
+# Source local overrides if they exist
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
