@@ -1,9 +1,9 @@
-set editing-mode emacs              # (already default, but explicit)
-set bell-style none                 # Don't beep
-set completion-ignore-case on       # Case-insensitive
-set show-all-if-ambiguous on       # Show completions immediately
-set colored-stats on                # Color by file type
-set visible-stats on                # Show / for directories
+set editing-mode emacs
+set bell-style none
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set colored-stats on
+set visible-stats on
 set completion-query-items 0
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
