@@ -41,7 +41,7 @@ packages:
 
   brews_personal:
     - ffmpeg
-    - handbrake
+    - handbrake-app
     - hugo
     - sassc
     - sox
@@ -78,7 +78,7 @@ packages:
     - makemkv
     - orbstack
     - sonos
-    - tailscale
+    - tailscale-app
     - vlc
     - zoom
 
