@@ -43,7 +43,6 @@ packages:
     - ffmpeg
     - handbrake
     - hugo
-    - netlify-cli
     - sassc
     - sox
     - syncthing
