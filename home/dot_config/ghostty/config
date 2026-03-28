@@ -1,4 +1,5 @@
-font-family = "Source Code Pro for Powerline"
+font-family = "Atkinson Hyperlegible Mono"
+font-family = "Symbols Nerd Font Mono"
 font-size = 16
 
 term = xterm-256color

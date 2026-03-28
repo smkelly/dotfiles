@@ -16,7 +16,6 @@ packages:
     - graphviz
     - htop
     - httpie
-    - hub
     - imagemagick
     - ipcalc
     - jq
@@ -52,7 +51,8 @@ packages:
     - 1password-cli
     - cleanshot
     - font-atkinson-hyperlegible
-    - font-source-code-pro-for-powerline
+    - font-atkinson-hyperlegible-mono
+    - font-symbols-only-nerd-font
     - ghostty
     - iterm2
     - keyboard-maestro
@@ -63,7 +63,6 @@ packages:
 
   casks_personal:
     - 1password
-    - backblaze
     - bambu-connect
     - bambu-studio
     - discord

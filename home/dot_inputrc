@@ -5,7 +5,6 @@ set show-all-if-ambiguous on
 set colored-stats on
 set visible-stats on
 set completion-query-items 0
-set show-all-if-ambiguous on
 set show-all-if-unmodified on
 set menu-complete-display-prefix on
 set colored-completion-prefix on
