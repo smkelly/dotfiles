@@ -1,4 +1,4 @@
-date: "+%Y-%m-%d %H:%m"
+date: "+%Y-%m-%d %H:%M"
 icons:
   theme: unicode
 hyperlink: auto
