@@ -41,7 +41,7 @@ packages:
 
   brews_personal:
     - ffmpeg
-    - handbrake-app
+    - handbrake
     - hugo
     - sassc
     - sox
@@ -68,7 +68,7 @@ packages:
     - bambu-studio
     - discord
     - firefox
-    - handbrake
+    - handbrake-app
     - hazel
     - hdhomerun
     - iina
