@@ -1,6 +1,4 @@
 set -gx LANG "en_US.UTF-8"
-set -gx LC_ALL "en_US.UTF-8"
-set -gx LC_TIME "C"
 
 set -gx TZ "America/New_York"
 
