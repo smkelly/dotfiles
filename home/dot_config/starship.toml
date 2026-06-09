@@ -6,3 +6,6 @@ disabled = true
 [directory]
 truncation_length = 1
 fish_style_pwd_dir_length = 1
+
+[gcloud]
+disabled = true
