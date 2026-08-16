@@ -25,7 +25,6 @@ packages:
     - mtr
     - ncdu
     - neovim
-    - node
     - nmap
     - pv
     - ripgrep
@@ -33,7 +32,7 @@ packages:
     - telnet
     - tmux
     - topgrade
-    - wget
+    - uv
     - xz
     - yj
     - zoxide
@@ -42,7 +41,6 @@ packages:
     - ffmpeg
     - handbrake
     - hugo
-    - sassc
     - sox
     - syncthing
     - yt-dlp
@@ -68,13 +66,8 @@ packages:
     - discord
     - firefox
     - handbrake-app
-    - hazel
-    - hdhomerun
-    - iina
     - insta360-studio
     - keybase
-    - maestral
-    - makemkv
     - orbstack
     - sonos
     - tailscale-app
