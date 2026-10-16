@@ -1,0 +1,19 @@
+{{- if ne .chezmoi.os "darwin" }}{{ abortEmpty }}{{ end -}}
+function battery --description 'Show system battery status'
+  set -l data
+  set -l level
+  set -l state
+  set -l color
+  set -l cmd (status current-command)
+
+  set data (pmset -g batt | egrep -o "([0-9]+\%).*")
+  set level (echo $data | cut -d';' -f1)
+  set state (string trim (echo $data | cut -d';' -f2))
+  switch "$state"
+    case charged charging "AC attached"
+      set color brgreen
+    case '*'
+      set color brred
+  end
+  echo -s "$cmd: " (set_color $color) "$state " (set_color normal) "at " (set_color bryellow) "$level"
+end

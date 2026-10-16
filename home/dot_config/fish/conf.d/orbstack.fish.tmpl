@@ -1,0 +1,4 @@
+{{- if ne .chezmoi.os "darwin" }}{{ abortEmpty }}{{ end -}}
+if test -d ~/.orbstack/
+  source ~/.orbstack/shell/init2.fish
+end
