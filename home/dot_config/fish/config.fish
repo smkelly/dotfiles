@@ -12,6 +12,4 @@ if test -f $__fish_config_dir/config.local.fish
     source ~/.config/fish/config.local.fish
 end
 
-
-# Hermes Agent — ensure ~/.local/bin is on PATH
 fish_add_path "$HOME/.local/bin"
