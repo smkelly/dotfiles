@@ -4,7 +4,6 @@ function fish_prompt --description 'Fast prompt without Starship'
     set -l normal (set_color normal)
     set -l user_color (set_color --bold yellow)
     set -l root_user_color (set_color --bold red)
-    set -l host_color (set_color --bold --dim green)
     set -l sep_color (set_color brblack)
     set -l cwd_color (set_color --bold cyan)
     set -l git_color (set_color --bold purple)
@@ -35,11 +34,31 @@ function fish_prompt --description 'Fast prompt without Starship'
         set -g __fish_prompt_short_hostname (command hostname -s 2>/dev/null; or command hostname 2>/dev/null; or echo unknown)
     end
 
+    if test $is_remote -eq 1; and not set -q __fish_prompt_host_color
+        set -l first_letter (string lower -- (string sub -s 1 -l 1 -- $__fish_prompt_short_hostname))
+        set -l host_hex FFFFFF
+        switch $first_letter
+            case a g m s y
+                set host_hex FF6666
+            case b h n t z
+                set host_hex FFA347
+            case c i o u
+                set host_hex FFE066
+            case d j p v
+                set host_hex 55E685
+            case e k q w
+                set host_hex 79B8FF
+            case f l r x
+                set host_hex C792EA
+        end
+        set -g __fish_prompt_host_color (set_color --bold $host_hex)
+    end
+
     if test $is_remote -eq 1
         if test $show_user -eq 1
-            echo -n -s $user_color $USER $sep_color '@' $host_color '🌐 ' $__fish_prompt_short_hostname $sep_color ':' $normal
+            echo -n -s $user_color $USER $sep_color '@' $__fish_prompt_host_color '🌐 ' $__fish_prompt_short_hostname $sep_color ':' $normal
         else
-            echo -n -s $host_color '🌐 ' $__fish_prompt_short_hostname $sep_color ':' $normal
+            echo -n -s $__fish_prompt_host_color '🌐 ' $__fish_prompt_short_hostname $sep_color ':' $normal
         end
     else if test $show_user -eq 1
         echo -n -s $user_color $USER $sep_color ':' $normal
