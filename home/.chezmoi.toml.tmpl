@@ -28,6 +28,15 @@
 format = "yaml"
 progress = true
 
+[add]
+secrets = "error"
+
+[template]
+options = ["missingkey=error"]
+
+[update]
+apply = false
+
 [data]
 email = {{ $email | quote }}
 name = "Sean Kelly"
